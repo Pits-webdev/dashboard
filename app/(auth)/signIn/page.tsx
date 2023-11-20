@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createUser } from "@/lib/data";
+import { createUser } from "@/lib/actions";
 
 const Signin = () => {
   return (

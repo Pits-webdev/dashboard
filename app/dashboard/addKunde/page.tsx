@@ -1,4 +1,4 @@
-import { createKunde } from "@/lib/data";
+import { createKunde } from "@/lib/actions";
 
 const addKunde = () => {
   return (

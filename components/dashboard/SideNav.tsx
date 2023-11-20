@@ -14,7 +14,7 @@ const sideNavLinks = [
   {
     id: 2,
     name: "Kunden",
-    href: "/dashboard/kunde",
+    href: "/dashboard/allKunde",
     icon: User,
   },
   {
