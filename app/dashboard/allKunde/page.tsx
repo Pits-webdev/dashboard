@@ -4,7 +4,6 @@ import { KUNDE } from "@/lib/definitions";
 const allKunde = async () => {
   const myData = await allKunden();
 
-  console.log(myData);
   return (
     <div className="w-full pt-4">
       <div className="mb-4">

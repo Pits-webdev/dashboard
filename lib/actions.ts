@@ -40,6 +40,6 @@ export const createKunde = async (formData: FormData) => {
     },
   });
 
-  revalidatePath("/dashboard");
-  redirect("/dashboard");
+  revalidatePath("/dashboard/allKunde");
+  redirect("/dashboard/allKunde");
 };
