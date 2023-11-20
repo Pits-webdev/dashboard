@@ -28,6 +28,22 @@ export const createUser = async (formData: FormData) => {
 //delete User
 
 //Kunde
+//create Kunde
+export const createKunde = async (formData: FormData) => {
+  const name = formData.get("name");
+  const email = formData.get("email");
+
+  await prisma.kunde.create({
+    data: {
+      name: name as string,
+      email: email as string,
+    },
+  });
+
+  revalidatePath("/dashboard");
+  redirect("/dashboard");
+};
+
 export const alldData = async () => {
   try {
     const data = await prisma.user.findMany();
