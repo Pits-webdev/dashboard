@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Home, User, UserPlus, Bookmark } from "react-feather";
 
 // feather Icons
@@ -26,6 +27,7 @@ const sideNavLinks = [
 ];
 
 const SideNav = () => {
+  const pathname = usePathname();
   return (
     <div className="w-full h-[calc(100vh-7vh)] bg-gray-100 py-4 flex flex-col justify-between">
       <ul className="relative flex flex-col gap-3">
@@ -37,7 +39,11 @@ const SideNav = () => {
           return (
             <li
               key={link.id}
-              className="pl-4 py-3 rounded-lg text-gray-500 hover:bg-blue-400 hover:text-white"
+              className={
+                link.href === pathname
+                  ? "pl-4 py-3 rounded-lg text-white bg-blue-400"
+                  : "pl-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-blue-400 hover:transition"
+              }
             >
               <Link href={link.href}>
                 <span className="flex gap-3 items-center ">

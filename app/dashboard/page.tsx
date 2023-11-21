@@ -1,14 +1,21 @@
 import Card from "@/components/dashboard/Card";
+import { allKunden } from "@/lib/data";
+import { KUNDE } from "@/lib/definitions";
+import { multiplayKunden } from "@/utils/utils";
 
-const Dashboard = () => {
+const Dashboard = async () => {
+  const myData = await allKunden();
+
+  const anzahl = multiplayKunden(myData);
+  console.log(anzahl);
   return (
     <div>
       <h2 className="text-lg my-4 font-semibold">Dashboard</h2>
       <div className="w-full h-fit flex justify-between gap-4 ">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card title="Kunde" data={anzahl} />
+        <Card title="Rechnungen" data="10" />
+        <Card title="bezahlt" data="7" />
+        <Card title="ausstehend" data="3" />
       </div>
 
       <div className="flex justify-between gap-16 mt-8">
