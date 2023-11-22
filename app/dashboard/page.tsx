@@ -1,13 +1,11 @@
 import Card from "@/components/dashboard/Card";
 import { allKunden } from "@/lib/data";
-import { KUNDE } from "@/lib/definitions";
 import { multiplayKunden } from "@/utils/utils";
 
 const Dashboard = async () => {
   const myData = await allKunden();
-
   const anzahl = multiplayKunden(myData);
-  console.log(anzahl);
+
   return (
     <div>
       <h2 className="text-lg my-4 font-semibold">Dashboard</h2>

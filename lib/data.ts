@@ -8,7 +8,6 @@ import { redirect } from "next/navigation";
 export const alldData = async () => {
   try {
     const data = await prisma.user.findMany();
-    console.log(data);
 
     return data;
   } catch (error) {
@@ -16,12 +15,28 @@ export const alldData = async () => {
   }
 };
 
-//Kunde
+//Kunden
+//alleKunden
 export const allKunden = async () => {
   try {
     const allKunde = await prisma.kunde.findMany();
 
     return allKunde;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//singleKunde
+export const singleKunde = async (id: number) => {
+  try {
+    const singleKunde = await prisma.kunde.findUnique({
+      where: {
+        id: id,
+      },
+    });
+
+    return singleKunde;
   } catch (error) {
     console.log(error);
   }

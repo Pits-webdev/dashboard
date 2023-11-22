@@ -1,5 +1,6 @@
 import { allKunden } from "@/lib/data";
 import { KUNDE } from "@/lib/definitions";
+import Link from "next/link";
 
 const allKunde = async () => {
   const myData = await allKunden();
@@ -16,6 +17,7 @@ const allKunde = async () => {
               <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
                 Name
               </th>
+
               <th scope="col" className="px-3 py-5 font-medium">
                 Email
               </th>
@@ -32,11 +34,13 @@ const allKunde = async () => {
           </thead>
 
           <tbody className="divide-y divide-gray-200 text-gray-900">
-            {myData?.map((kunde: KUNDE, idx) => (
-              <tr key={idx} className="group">
+            {myData?.map((kunde: KUNDE) => (
+              <tr key={kunde.id} className="group">
                 <td className="whitespace-nowrap bg-white py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">
                   <div className="flex items-center gap-3">
-                    <p>{kunde.name}</p>
+                    <Link href={`/dashboard/allKunde/${kunde.id}`}>
+                      <p>{kunde.name}</p>
+                    </Link>
                   </div>
                 </td>
                 <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
