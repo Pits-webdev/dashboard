@@ -1,3 +1,5 @@
+//@ts-nocheck //TODO - show typescript error
+
 "use server";
 
 import { revalidatePath } from "next/cache";
@@ -42,4 +44,36 @@ export const createKunde = async (formData: FormData) => {
 
   revalidatePath("/dashboard/allKunde");
   redirect("/dashboard/allKunde");
+};
+
+//Rechnungen
+// add Rechnung
+
+export const addRechnung = async (formData: FormData) => {
+  const idForm = formData.get("id");
+  const preisForm = formData.get("preis");
+  const bezahlt = formData.get("bezahlt");
+
+  /* parse number */
+  const kundenId = parseInt(idForm);
+  const preis = parseInt(preisForm);
+  //checkbox to boolean
+  const status = (value) => {
+    if (value === "on") {
+      return true;
+    }
+    return false;
+  };
+
+  try {
+    const addRechnung = await prisma.rechnung.create({
+      data: {
+        preis: preis,
+        bezahlt: status(bezahlt),
+        authorId: kundenId,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
