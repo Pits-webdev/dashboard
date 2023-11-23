@@ -13,9 +13,9 @@ const SingleKunde = async ({ params: { id } }: { params: { id: string } }) => {
       <h2 className="text-xl font-semibold">{kunde?.name}</h2>
 
       <div className="mt-4 flex flex-col gap-4">
-        <AddRechnung />
+        <AddRechnung kundenId={id} />
 
-        <Rechnung />
+        <Rechnung kundenId={id} />
       </div>
     </div>
   );

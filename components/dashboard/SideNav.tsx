@@ -32,7 +32,7 @@ const SideNav = () => {
     <div className="w-full h-[calc(100vh-7vh)] bg-gray-100 py-4 flex flex-col justify-between">
       <ul className="relative flex flex-col gap-3">
         <li>
-          <h2 className="mb-5 px-5 text-2xl ">Navigation</h2>
+          <h2 className="mb-5 px-5 font-semibold  text-xl ">Navigation</h2>
         </li>
         {sideNavLinks.map((link) => {
           const LinkIcon = link.icon;

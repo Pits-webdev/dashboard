@@ -6,9 +6,9 @@ const allKunde = async () => {
   const myData = await allKunden();
 
   return (
-    <div className="w-full pt-4">
+    <div className="w-full ">
       <div className="mb-4">
-        <h2 className="text-2xl">Kunden</h2>
+        <h2 className="text-lg my-4 font-semibold">Kunden</h2>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="hidden min-w-full rounded-md text-gray-900 md:table">
