@@ -63,12 +63,26 @@ export const allRechnungen = async () => {
 export const kundeByIdRechnungen = async () => {
   try {
     const data = await prisma.rechnung.findMany({
+      take: -9,
       include: {
         author: true,
       },
     });
 
     return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const firmaRechnung = async (kundenId: string) => {
+  try {
+    const id = parseInt(kundenId);
+    const einzelRechnung = await prisma.rechnung.findMany({
+      where: { authorId: id },
+    });
+
+    return einzelRechnung;
   } catch (error) {
     console.log(error);
   }

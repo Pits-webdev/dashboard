@@ -21,11 +21,13 @@ const Dashboard = async () => {
         <Card title="ausstehend" data="3" />
       </div>
 
+      {/* jungste einnamen */}
       <div className="flex justify-between gap-16 mt-8">
         <div className="basis-1/2 bg-gray-100 p-4">
           <h2 className="font-semibold">Jüngste Einnahmen</h2>
         </div>
 
+        {/* letzet rechnungen */}
         <div className="basis-1/2 bg-gray-100 h-[500px] flex flex-col gap-8 p-4">
           <h2 className="font-semibold">Letzte Rechnungen</h2>
           <div className="flex flex-col gap-4">
