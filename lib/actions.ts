@@ -73,6 +73,8 @@ export const addRechnung = async (formData: FormData) => {
         authorId: kundenId,
       },
     });
+
+    revalidatePath(`dashboard/allKunde/${kundenId}`);
   } catch (error) {
     console.log(error);
   }
